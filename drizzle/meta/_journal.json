@@ -1,0 +1,41 @@
+{
+  "version": "7",
+  "dialect": "sqlite",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "6",
+      "when": 1759434578795,
+      "tag": "0000_powerful_marvel_boy",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "6",
+      "when": 1760053534780,
+      "tag": "0001_nervous_scrambler",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "6",
+      "when": 1760057215869,
+      "tag": "0002_colorful_ken_ellis",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "6",
+      "when": 1760057306984,
+      "tag": "0003_blushing_warbird",
+      "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "6",
+      "when": 1760057368551,
+      "tag": "0004_tense_thunderbird",
+      "breakpoints": true
+    }
+  ]
+}

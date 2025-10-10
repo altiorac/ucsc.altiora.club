@@ -1,0 +1,1 @@
+ALTER TABLE `applications` ALTER COLUMN "created_at" TO "created_at" integer NOT NULL DEFAULT '"2025-10-09T23:45:34.773Z"';

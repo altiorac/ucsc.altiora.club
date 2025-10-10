@@ -11,8 +11,7 @@ import { useMediaQuery } from "@/hooks/useMediaQuery";
 
 const MENU_ITEMS = [
     { label: "HOME", path: "/" },
-    { label: "TALENT", path: "/talent" },
-    { label: "PROGRAMS", path: "/programs" },
+    { label: "DIVISIONS", path: "/divisions" },
     { label: "ABOUT US", path: "/about" },
     { label: "CONTACT", path: "/contact" },
     { label: "APPLY", path: "/apply" },

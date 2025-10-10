@@ -5,8 +5,6 @@ import Image, { StaticImageData } from "next/image";
 import Link from "next/link";
 import CursorBadge from "@/components/ui/cursorbadge";
 
-import TeamPage from "@/components/about/teampage";
-
 import Footer from "@/components/footer";
 
 export default function About() {
@@ -36,7 +34,7 @@ export default function About() {
                     <h1 className="text-2xl font-semibold">VISION</h1>
                     <div className="uppercase flex flex-col text-center gap-8 tracking-wider">
                         <p className="uppercase font-semibold px-24">
-                            Altiora exists to bridge the gap of <span className="font-normal italic">ambition.</span>
+                            Altiora exists to bridge the gap of <span className="font-semibold italic">ambition.</span>
                         </p>
                         <div className="px-8 text-sm md:text-base">
                             <p>
@@ -44,9 +42,8 @@ export default function About() {
                                 you keep determines whether you improve or decay.
                             </p>
                         </div>
-                        <p className="px-8 text-sm md:text-base">By definition, if you are in the top 5%,</p>
-                        <p className="px-8 text-sm md:text-base">95% of encounters will not be enough.</p>
-                        <p className="px-8 text-sm md:text-base">We are a concentration of that 5%,</p>
+                        <p className="px-8 text-sm md:text-base">By definition, <span className="italic">if</span> you are in the top 5%,<br />95% of encounters will not be enough.</p>
+                        <p className="px-8 text-sm md:text-base">We are a concentration of that 5%.</p>
                         <div className="px-8 text-sm md:text-base">
                             <p>a circle of builders, traders, and leaders</p>
                             <p>who compound through proof of work.</p>
@@ -54,7 +51,6 @@ export default function About() {
                     </div>
                 </div>
             </div>
-            <TeamPage />
             <Footer />
         </div>
     );

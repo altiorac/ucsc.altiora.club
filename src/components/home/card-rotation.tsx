@@ -1,25 +1,12 @@
 import Image from "next/image";
 import { useMemo } from "react";
 
-import Collective from "@/assets/altioracollective.png";
-import Growth from "@/assets/altioragrowth.png";
-import Trading from "@/assets/altioratrading.png";
-import Venture from "@/assets/altioraventure.jpg";
+import { images } from "@/lib/utils";
 
 import ImageHover from "@/components/ui/imagehover";
 import CursorBadge from "@/components/ui/cursorbadge";
 
 export default function CardRotation() {
-    const images = useMemo(
-        () => [
-            { src: Collective, alt: "collective" },
-            { src: Growth, alt: "growth" },
-            { src: Trading, alt: "trading" },
-            { src: Venture, alt: "venture" },
-        ],
-        []
-    );
-
     const loopImages = useMemo(() => images.concat(images), [images]);
 
     return (
@@ -30,7 +17,7 @@ export default function CardRotation() {
                     <div className="animate-altiora-ticker flex">
                         {loopImages.map((img, i) => (
                             <div key={i}>
-                                <ImageHover link={`programs/${img.alt}`} src={img.src} alt={img.alt} priority={i < 4} className="w-full h-full object-cover" />
+                                <ImageHover link={`https://${img.link}.altiora.club`} blank={true} src={img.src} alt={img.alt} priority={i < 4} className="w-full h-full object-cover" />
                             </div>
                         ))}
                     </div>

@@ -18,7 +18,7 @@ export default function About() {
 
             <div className="flex mt-30 gap-6 -ml-4">
                 <div className="rounded-full transition-colors">
-                    <TextScroller href="/programs" items={[<span className="py-0.5 px-4">PROGRAMS</span>, <span className="py-0.5 px-4">PROGRAMS</span>]} interaction="hover" className="text-base tracking-tighter uppercase h-8 bg-neutral-900 rounded-full font-standard" textAlign="center" />
+                    <TextScroller href="/divisions" items={[<span className="py-0.5 px-4">DIVISIONS</span>, <span className="py-0.5 px-4">DIVISIONS</span>]} interaction="hover" className="text-base tracking-tighter uppercase h-8 bg-neutral-900 rounded-full font-standard" textAlign="center" />
                 </div>
                 <div className="transition-colors">
                     <TextScroller href="/apply" items={[<span>APPLY</span>, <span>APPLY</span>]} interaction="hover" className="text-base tracking-tighter uppercase h-8 font-standard" textAlign="center" />

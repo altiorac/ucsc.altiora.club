@@ -9,18 +9,21 @@ export default function ImageHover({
   link,
   className = "",
   priority = false,
+  blank = false,
 }: {
   src: string | StaticImageData;
   alt: string;
   link: string;
   className?: string;
   priority?: boolean;
+  blank?: boolean;
 }) {
   const [hovering, setHovering] = useState(false);
   
   return (
     <Link
       href={link}
+      target={blank ? "_blank" : ""}
       data-cursor-hover // This attribute triggers the cursor badge
       className="w-[475px] h-[675px] overflow-hidden mx-[5px] relative cursor-pointer block"
       onMouseEnter={() => setHovering(true)}

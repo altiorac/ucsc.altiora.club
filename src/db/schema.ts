@@ -1,37 +1,42 @@
 import { sqliteTable, integer, text } from "drizzle-orm/sqlite-core";
 import { relations } from "drizzle-orm";
 
-export const members = sqliteTable("members", {
+export const applications = sqliteTable("applications", {
     id: integer("id").primaryKey({ autoIncrement: true }),
-    name: text("name").notNull(),
-    email: text("email").notNull(),
-    phone: integer("phone").notNull(),
-    year: integer("year").notNull(),
-    major: text("major").notNull(),
-});
-
-export const memberSocials = sqliteTable("member_socials", {
-    memberId: integer("member_id")
-        .references(() => members.id)
-        .primaryKey(),
-    portfolio: text("portfolio"),
+    firstName: text("first_name").notNull(),
+    lastName: text("last_name").notNull(),
+    email: text("email").notNull().unique(),
+    phone: text("phone").notNull().unique(),
+    year: text("year"),
+    major: text("major"),
     instagram: text("instagram"),
     linkedin: text("linkedin"),
+    portfolio: text("portfolio"),
+    howHear: text("how_hear"),
+    createdAt: integer("created_at", { mode: "timestamp" }).notNull().default(new Date()),
 });
 
-export const memberEssays = sqliteTable("member_essays", {
-    memberId: integer("member_id")
-        .references(() => members.id)
-        .primaryKey(),
-    convince: text("convince"),
-    project: text("project"),
+export const applicationEssays = sqliteTable("application_essays", {
+    id: integer("id").primaryKey({ autoIncrement: true }),
+    applicationId: integer("application_id")
+        .notNull()
+        .references(() => applications.id, { onDelete: "cascade" }),
+    convince: text("convince").notNull(),
+    project: text("project").notNull(),
     reasons: text("reasons"),
-});
-
-export const memberAnalytics = sqliteTable("member_analytics", {
-    memberId: integer("member_id")
-        .references(() => members.id)
-        .primaryKey(),
-    howhear: text("howhear"),
     intent: text("intent"),
 });
+
+export const applicationsRelations = relations(applications, ({ one }) => ({
+    essays: one(applicationEssays, {
+        fields: [applications.id],
+        references: [applicationEssays.applicationId],
+    }),
+}));
+
+export const applicationEssaysRelations = relations(applicationEssays, ({ one }) => ({
+    application: one(applications, {
+        fields: [applicationEssays.applicationId],
+        references: [applications.id],
+    }),
+}));

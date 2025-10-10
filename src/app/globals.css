@@ -152,7 +152,7 @@ html::-webkit-scrollbar {
 }
 
 .animate-altiora-ticker {
-  animation: altiora-ticker 20s linear infinite;
+  animation: altiora-ticker 80s linear infinite;
 }
 
 @layer utilities {

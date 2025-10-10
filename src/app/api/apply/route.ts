@@ -5,6 +5,7 @@ import { applications, applicationEssays } from "@/db/schema";
 export async function POST(request: Request) {
 	try {
 		const formData = await request.json();
+		const divisions = Array.isArray(formData.divisions) ? formData.divisions.map((division: unknown) => String(division)) : [];
 		const newApplication = await db
 			.insert(applications)
 			.values({
@@ -14,6 +15,7 @@ export async function POST(request: Request) {
 				phone: formData.phone,
 				year: formData.year,
 				major: formData.major,
+				divisions,
 				instagram: formData.instagram,
 				linkedin: formData.linkedin,
 				portfolio: formData.portfolio,

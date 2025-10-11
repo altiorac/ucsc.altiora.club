@@ -6,7 +6,7 @@ import NoFocusGate from "@/components/nofocusgate";
 import Navbar from "@/components/navbar";
 import Script from "next/script";
 
-const siteUrl = "https://altiora.club";
+const siteUrl = "https://ucsc.altiora.club";
 const orgName = "Altiora UCSC";
 const siteName = "Altiora UCSC";
 const siteTagline = "The exclusive society for UCSC’s future founders, leaders, and visionaries.";

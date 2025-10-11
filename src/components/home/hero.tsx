@@ -56,7 +56,7 @@ export default function hero() {
                         }}
                         className="font-standard font-thin md:ml-8 md:mt-2 xl:mt-4 scale-y-85 select-none"
                     >
-                        LATIN: "HIGHER"
+                        {"LATIN: \"HIGHER\""}
                     </motion.div>
                 </div>
             </div>

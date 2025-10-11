@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "motion/react";
+import type { Variants } from "motion/react";
 import { cn } from "@/lib/utils";
 
 type DivisionOption = {
@@ -8,7 +9,7 @@ type DivisionOption = {
   label: string;
 };
 
-const containerVariants = {
+const containerVariants: Variants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
@@ -18,14 +19,14 @@ const containerVariants = {
   },
 };
 
-const itemVariants = {
+const itemVariants: Variants = {
   hidden: { y: 10, opacity: 0 },
   visible: {
     y: 0,
     opacity: 1,
     transition: {
       duration: 0.5,
-      ease: "easeOut",
+      ease: "easeOut" as const,
     },
   },
 };

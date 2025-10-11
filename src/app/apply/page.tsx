@@ -2,6 +2,7 @@
 
 import { useState, useCallback, useEffect, useMemo, useRef } from "react";
 import { motion } from "motion/react";
+import type { Variants } from "motion/react";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
@@ -11,7 +12,7 @@ import Footer from "@/components/footer";
 import { cn } from "@/lib/utils";
 import { DivisionSelector } from "@/components/ui/division-selector";
 
-const containerVariants = {
+const containerVariants: Variants = {
 	hidden: { opacity: 0 },
 	visible: {
 		opacity: 1,
@@ -22,7 +23,7 @@ const containerVariants = {
 	},
 };
 
-const itemVariants = {
+const itemVariants: Variants = {
 	hidden: { y: 20, opacity: 0 },
 	visible: {
 		y: 0,

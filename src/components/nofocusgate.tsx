@@ -1,4 +1,3 @@
-
 "use client";
 import { useEffect } from "react";
 
@@ -20,7 +19,6 @@ export default function NoFocusGate() {
 
     return () => {
       window.removeEventListener("keydown", onKeyDown, { capture: true });
-      document.removeEventListener("mousedown", onMouseDown, { capture: true });
       originalTabIndex.forEach((val, el) => {
         if (val === null) el.removeAttribute("tabindex");
         else el.setAttribute("tabindex", val);

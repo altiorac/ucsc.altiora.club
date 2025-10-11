@@ -79,38 +79,47 @@ export default function TextScroller({
         right: "justify-end",
     }[textAlign];
 
-    const RootComponent = href ? Link : 'div';
+    const visibility: React.CSSProperties["visibility"] = measuredHeight === null ? "hidden" : "visible";
 
-    return (
-        <RootComponent
-            ref={containerRef}
-            href={href || null}
-            {...eventProps}
-            className={`relative inline-block overflow-hidden ${href ? '' : 'cursor-pointer'} ${className}`}
-            style={{
-                visibility: measuredHeight === null ? 'hidden' : 'visible',
-            }}
+    const commonProps = {
+        ref: containerRef,
+        ...eventProps,
+        className: `relative inline-block overflow-hidden ${href ? '' : 'cursor-pointer'} ${className}`,
+        style: {
+            visibility,
+        },
+    };
+
+    const content = (
+        <motion.div
+            animate={{ y: measuredHeight !== null ? -currentIndex * measuredHeight : 0 }}
+            transition={transition}
+            className="flex flex-col"
         >
-            <motion.div
-                animate={{ y: measuredHeight !== null ? -currentIndex * measuredHeight : 0 }}
-                transition={transition}
-                className="flex flex-col"
-            >
-                {items.map((item, i) => (
-                    <div
-                        key={i}
-                        data-item
-                        className={`flex w-full items-center ${alignmentClass}`}
-                        style={{
-                            height: measuredHeight ? `${measuredHeight}px` : 'auto',
-                            flexShrink: 0,
-                        }}
-                        aria-hidden={i !== currentIndex}
-                    >
-                        {item}
-                    </div>
-                ))}
-            </motion.div>
-        </RootComponent>
+            {items.map((item, i) => (
+                <div
+                    key={i}
+                    data-item
+                    className={`flex w-full items-center ${alignmentClass}`}
+                    style={{
+                        height: measuredHeight ? `${measuredHeight}px` : 'auto',
+                        flexShrink: 0,
+                    }}
+                    aria-hidden={i !== currentIndex}
+                >
+                    {item}
+                </div>
+            ))}
+        </motion.div>
     );
+
+    if (href) {
+        return (
+            <Link {...commonProps} href={href}>
+                {content}
+            </Link>
+        );
+    }
+
+    return <div {...commonProps}>{content}</div>;
 }

@@ -4,8 +4,9 @@ import { motion } from "motion/react";
 import Image, { StaticImageData } from "next/image";
 import Link from "next/link";
 import CursorBadge from "@/components/ui/cursorbadge";
+import type { ReactNode } from "react";
 
-export default function DivisionPage({ title, description, content, next, image }: { title: string; description: string; content: string; next: string; image: StaticImageData }) {
+export default function DivisionPage({ title, description, content, next, image }: { title: string; description: ReactNode; content: ReactNode; next: string; image: StaticImageData }) {
     const nextProjectSlug = next.toLowerCase().replace(/\s+/g, '-');
 
     return (

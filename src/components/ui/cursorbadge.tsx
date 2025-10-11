@@ -8,7 +8,7 @@ interface CursorBadge {
 	className?: string;
 }
 
-const HoverFollowView: React.FC<HoverFollowViewProps> = ({ children, className }: CursorBadge) => {
+const HoverFollowView: React.FC<CursorBadge> = ({ children, className = "" }) => {
 	const containerRef = useRef<HTMLDivElement>(null);
 	const [position, setPosition] = useState({ x: 0, y: 0 });
 

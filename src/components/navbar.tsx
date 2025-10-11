@@ -21,17 +21,17 @@ const ANIMATION_CONFIG = {
     navbar: {
         initial: { y: -10, opacity: 0 },
         animate: { y: 0, opacity: 1 },
-        transition: { duration: 1, ease: "easeOut", delay: 0.5 },
+        transition: { duration: 1, ease: "easeOut" as const, delay: 0.5 },
     },
     overlay: {
-        transition: { duration: 0.5, ease: "easeOut" },
+        transition: { duration: 0.5, ease: "easeOut" as const },
     },
     menuItem: {
         open: (i: number) => ({
             y: 0,
             opacity: 1,
             transition: {
-                y: { delay: 0.02 * i, duration: 0.8 + 0.1 * i, ease: "easeOut" },
+                y: { delay: 0.02 * i, duration: 0.8 + 0.1 * i, ease: "easeOut" as const },
                 opacity: { duration: 0 },
             },
         }),
@@ -45,14 +45,13 @@ const ANIMATION_CONFIG = {
         },
     },
     burger: {
-        transition: { ease: "easeOut", duration: 0.25 },
+        transition: { ease: "easeOut" as const, duration: 0.25 },
     },
 };
 
 interface MenuItemProps {
     label: string;
     path: string;
-    marginClass: string;
     index: number;
     isOpen: boolean;
     isHovered: boolean;
@@ -61,14 +60,14 @@ interface MenuItemProps {
     onLinkClick: () => void;
 }
 
-const MenuItem = ({ label, path, marginClass, index, isOpen, isHovered, onHover, onLeave, onLinkClick }: MenuItemProps) => {
+const MenuItem = ({ label, path, index, isOpen, isHovered, onHover, onLeave, onLinkClick }: MenuItemProps) => {
     const isLargeScreen = useMediaQuery("(min-width: 1024px)");
     const textAlignValue = isLargeScreen ? "left" : "center";
 
     return (
         <div className="h-fit w-full overflow-hidden">
             <motion.div className="flex flex-col justify-center" custom={index} variants={ANIMATION_CONFIG.menuItem} initial="closed" animate={isOpen ? "open" : "closed"}>
-                <TextScroller href={path} activeIndex={isHovered ? 1 : 0} className="h-20 pr-2" textAlign={textAlignValue} items={[<span className="font-standard">{label}</span>, <span className={`font-fancy italic tracking-tighter font-thin`}>{label}</span>]} onMouseEnter={() => onHover(label)} onMouseLeave={onLeave} onClick={onLinkClick} />
+                <TextScroller href={path} activeIndex={isHovered ? 1 : 0} className="h-20 pr-2" textAlign={textAlignValue} items={[<span key={`${label}-primary`} className="font-standard">{label}</span>, <span key={`${label}-hover`} className="font-fancy italic tracking-tighter font-thin">{label}</span>]} onMouseEnter={() => onHover(label)} onMouseLeave={onLeave} onClick={onLinkClick} />
             </motion.div>
         </div>
     );
@@ -108,7 +107,7 @@ export default function Navbar() {
     const [isOpen, setOpen] = useState(false);
     const [hoveredLabel, setHoveredLabel] = useState("");
 
-    const allLabels = useMemo(() => MENU_ITEMS.map((item) => item.label), []);
+    const allLabels = useMemo<string[]>(() => MENU_ITEMS.map((item) => item.label), []);
     const hoveredIndex = useMemo(() => allLabels.indexOf(hoveredLabel), [allLabels, hoveredLabel]);
 
     const toggleMenu = useCallback(() => setOpen((prev) => !prev), []);
@@ -133,7 +132,7 @@ export default function Navbar() {
                             <div className="lg:w-full lg:flex lg:flex-col lg:justify-center lg:items-center hidden">
                                 <Image src={altiora2} alt="Altiora logo" width={900} height={900} className="max-w-[100%] h-auto" priority />
                                 <motion.div animate={{ opacity: hoveredIndex !== -1 ? 1 : 0 }} transition={{ duration: 0.3 }} className="xl:-mt-30 -mt-15">
-                                    <TextScroller items={allLabels} activeIndex={hoveredIndex} className="h-10 font-standard text-2xl tracking-widest uppercase" textAlign="center" transition={{ ease: "easeInOut", duration: 0.5 }} />
+                                    <TextScroller items={allLabels} activeIndex={hoveredIndex} className="h-10 font-standard text-2xl tracking-widest uppercase" textAlign="center" transition={{ ease: "easeInOut" as const, duration: 0.5 }} />
                                 </motion.div>
                             </div>
                         </div>
@@ -147,7 +146,7 @@ export default function Navbar() {
                 </Link>
 
                 <div className="flex w-fit pt-7 pr-2 gap-2 select-none items-center">
-                    <TextScroller activeIndex={isOpen ? 1 : 0} items={[<span>MENU</span>, <span>CLOSE</span>]} interaction="click" onClick={toggleMenu} className="h-6 font-standard font-light md:block! hidden! tracking-tight" textAlign="right" />
+                    <TextScroller activeIndex={isOpen ? 1 : 0} items={[<span key="menu-label">MENU</span>, <span key="menu-close">CLOSE</span>]} interaction="click" onClick={toggleMenu} className="h-6 font-standard font-light md:block! hidden! tracking-tight" textAlign="right" />
                     <BurgerButton isOpen={isOpen} onClick={toggleMenu} />
                 </div>
             </div>

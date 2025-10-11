@@ -30,7 +30,7 @@ const itemVariants: Variants = {
 		opacity: 1,
 		transition: {
 			duration: 0.8,
-			ease: "easeOut",
+			ease: "easeOut" as const,
 		},
 	},
 };
@@ -423,7 +423,7 @@ export default function ApplyPage() {
 	return (
 		<div className="w-full min-h-screen bg-background text-foreground pt-40">
 			<main className="container mx-auto max-w-3xl px-6">
-				<motion.div initial={{ y: -20, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ duration: 1, ease: "easeOut", delay: 0.2 }}>
+				<motion.div initial={{ y: -20, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ duration: 1, ease: "easeOut" as const, delay: 0.2 }}>
 					<h1 className="font-fancy italic text-6xl md:text-8xl font-thin tracking-tighter mb-4">Join Altiora.</h1>
 					<p className="font-standard text-lg md:text-xl text-foreground/80 max-w-2xl">We are looking for the ambitious, the creative, and the visionary. Tell us why you belong with us.</p>
 				</motion.div>

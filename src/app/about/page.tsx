@@ -22,7 +22,7 @@ export default function About() {
                         transition={{
                             duration: 1.25,
                             delay: 0.5,
-                            ease: "easeOut",
+                            ease: "easeOut" as const,
                         }}
                     >
                         <span className="font-standard font-semibold tracking-tighter text-6xl md:text-7xl xl:text-8xl select-none pr-1">ABOUT US</span>

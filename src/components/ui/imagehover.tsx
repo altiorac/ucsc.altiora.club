@@ -24,7 +24,7 @@ export default function ImageHover({
     <Link
       href={link}
       target={blank ? "_blank" : ""}
-      data-cursor-hover // This attribute triggers the cursor badge
+      data-cursor-hover
       className="w-[475px] h-[675px] overflow-hidden mx-[5px] relative cursor-pointer block"
       onMouseEnter={() => setHovering(true)}
       onMouseLeave={() => setHovering(false)}
@@ -34,7 +34,7 @@ export default function ImageHover({
         alt={alt}
         priority={priority}
         className={`w-full h-full object-cover transition-all duration-300 ${
-          hovering ? "brightness-50" : "brightness-100"
+          hovering ? "brightness-50" : "brightness-80"
         } ${className}`}
       />
       <div

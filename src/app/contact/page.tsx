@@ -17,7 +17,7 @@ export default function Contact() {
                         transition={{
                             duration: 1.25,
                             delay: 0.5,
-                            ease: "easeOut",
+                            ease: "easeOut" as const,
                         }}
                     >
                         <span className="font-standard font-semibold tracking-tight text-6xl md:text-7xl xl:text-8xl select-none">HIT US.</span>
@@ -34,7 +34,7 @@ export default function Contact() {
                         transition={{
                             duration: 1.25,
                             delay: 1.5,
-                            ease: "easeOut",
+                            ease: "easeOut" as const,
                         }}
                     >
                         <div className="mt-60 font-standard text-center uppercase">

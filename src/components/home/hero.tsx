@@ -17,7 +17,7 @@ export default function hero() {
                         transition={{
                             duration: 1.25,
                             delay: 0.5,
-                            ease: "easeOut",
+                            ease: "easeOut" as const,
                         }}
                     >
                         <span className="font-standard font-semibold tracking-tighter text-6xl md:text-7xl xl:text-8xl select-none md:scale-x-95">ALTIORA</span>
@@ -34,7 +34,7 @@ export default function hero() {
                         transition={{
                             duration: 1.25,
                             delay: 0.8,
-                            ease: "easeOut",
+                            ease: "easeOut" as const,
                         }}
                         className="font-fancy font-normal tracking-tighter italic text-6xl md:text-7xl xl:text-8xl select-none md:px-2"
                     >
@@ -52,7 +52,7 @@ export default function hero() {
                         transition={{
                             duration: 1.25,
                             delay: 1.1,
-                            ease: "easeOut",
+                            ease: "easeOut" as const,
                         }}
                         className="font-standard font-thin md:ml-8 md:mt-2 xl:mt-4 scale-y-85 select-none"
                     >

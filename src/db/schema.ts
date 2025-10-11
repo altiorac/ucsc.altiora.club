@@ -14,7 +14,12 @@ export const applications = sqliteTable("applications", {
     linkedin: text("linkedin"),
     portfolio: text("portfolio"),
     howHear: text("how_hear"),
-    createdAt: integer("created_at", { mode: "timestamp" }).notNull().default(new Date()),
+    createdAt: integer("created_at", { mode: "timestamp" })
+        .notNull()
+        .default(sql`(strftime('%s', 'now') * 1000)`),
+    updatedAt: integer("updated_at", { mode: "timestamp" })
+        .notNull()
+        .default(sql`(strftime('%s', 'now') * 1000)`),
 });
 
 export const applicationEssays = sqliteTable("application_essays", {

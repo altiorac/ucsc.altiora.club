@@ -43,6 +43,13 @@
       "when": 1760057600000,
       "tag": "0005_vibrant_division_array",
       "breakpoints": true
+    },
+    {
+      "idx": 6,
+      "version": "6",
+      "when": 1760058200000,
+      "tag": "0006_submission_update_controls",
+      "breakpoints": true
     }
   ]
 }

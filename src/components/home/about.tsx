@@ -7,13 +7,13 @@ export default function About() {
                 <h1 className="text-2xl font-semibold -tracking-1">A CIRCLE ABOVE THE REST.</h1>
                 <br />
                 <div className="font-[50] scale-x-105">
-                    <p className="mb-1">Altiora isn't a club; It's a curated collective of</p>
+                    <p className="mb-1">Altiora isn&apos;t a club; It&apos;s a curated collective of</p>
                     <p>high-end thinkers and those who get things done.</p>
                     <br />
                     <p>We accept less than 5% of applicants</p>
                     <p>because we know quality outlives quantity.</p>
                     <br />
-                    <p>We don't accept bloated Résumés.</p>
+                    <p>We don&apos;t accept bloated Résumés.</p>
                     <br />
                     <p>We accept by evidence of Obsession and Excellence.</p>
                 </div>

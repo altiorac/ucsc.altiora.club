@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Hero from "@/components/home/hero";
 import CardRotation from "@/components/home/card-rotation";
 import About from "@/components/home/about";

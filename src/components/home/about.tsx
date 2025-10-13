@@ -2,17 +2,20 @@ import TextScroller from "@/components/ui/textscroll";
 
 export default function About() {
     return (
-        <div className="w-screen h-screen flex flex-col justify-center text-center items-center mt-28 cursor-default">
-            <div className="uppercase font-standard tracking-3 mb-20">
+        <div className="w-screen h-screen flex flex-col justify-center text-center items-center mt-80 cursor-default">
+            <div className="uppercase font-standard tracking-3 mb-10">
                 <h1 className="text-2xl font-semibold -tracking-1">A CIRCLE ABOVE THE REST.</h1>
                 <br />
                 <div className="font-[50] scale-x-105">
-                    <p className="mb-1">We are a curated circle of Students who sharpen</p>
-                    <p>each other through countless disciplines.</p>
+                    <p className="mb-1">Altiora isn't a club; It's a curated collective of</p>
+                    <p>high-end thinkers and those who get things done.</p>
                     <br />
-                    <p>We don’t measure by GPA.</p>
+                    <p>We accept less than 5% of applicants</p>
+                    <p>because we know quality outlives quantity.</p>
                     <br />
-                    <p>We measure by grit, results, and character.</p>
+                    <p>We don't accept bloated Résumés.</p>
+                    <br />
+                    <p>We accept by evidence of Obsession and Excellence.</p>
                 </div>
             </div>
 

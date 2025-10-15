@@ -1,10 +1,12 @@
 "use client"
+import type { StaticImageData } from "next/image"
+import type { AnimationPlaybackControls } from "motion"
 import { Ticker } from "motion-plus/react"
 import { motion, useMotionValue, animate } from "motion/react"
 import { useEffect, useRef } from "react"
 
-interface TickerItem {
-    src: string
+export interface TickerItem {
+    src: string | StaticImageData
     alt: string
     link: string
 }
@@ -21,7 +23,7 @@ export default function AutoScrollTicker({
     ItemComponent 
 }: AutoScrollTickerProps) {
     const offset = useMotionValue(0)
-    const animationRef = useRef<any>(null)
+    const animationRef = useRef<AnimationPlaybackControls | null>(null)
     const isDragging = useRef(false)
 
     const loopItems = [...items, ...items]
@@ -65,15 +67,20 @@ export default function AutoScrollTicker({
         })
     }
 
-    const DefaultItem = ({ item, index }: { item: TickerItem; index: number }) => (
-        <motion.div className="ticker-item">
-            <img
-                src={item.src}
-                alt={item.alt}
-                draggable={false}
-            />
-        </motion.div>
-    )
+    const DefaultItem = ({ item, index }: { item: TickerItem; index: number }) => {
+        void index
+        const resolvedSrc = typeof item.src === "string" ? item.src : item.src.src
+        return (
+            <motion.div className="ticker-item">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                    src={resolvedSrc}
+                    alt={item.alt}
+                    draggable={false}
+                />
+            </motion.div>
+        )
+    }
 
     const Component = ItemComponent || DefaultItem
 

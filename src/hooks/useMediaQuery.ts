@@ -9,16 +9,16 @@ export const useMediaQuery = (query: string): boolean => {
       setMatches(media.matches);
     }
     const listener = () => setMatches(media.matches);
-    try {
+    if (typeof media.addEventListener === 'function') {
         media.addEventListener('change', listener);
-    } catch (e) {
+    } else {
         media.addListener(listener); // Deprecated but fallback
     }
 
     return () => {
-        try {
+        if (typeof media.removeEventListener === 'function') {
             media.removeEventListener('change', listener);
-        } catch (e) {
+        } else {
             media.removeListener(listener); // Deprecated but fallback
         }
     };

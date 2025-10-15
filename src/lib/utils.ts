@@ -18,7 +18,7 @@ export function cn(...inputs: ClassValue[]) {
 
 export const images = [
 	{ src: Engineering, tags: ["HARDWARE", "ELECTRICAL", "MECHANICAL"], alt: "engineering", link: "engineering" },
-	{ src: Development, tags: ["SOFTWARE", "PROGRAMMING", "TECH"], alt: "development", link: "developer" },
+	{ src: Development, tags: ["SOFTWARE", "PROGRAMMING", "TECH"], alt: "development", link: "developers" },
 	{ src: Finance, tags: ["BUSINESS", "ECONOMICS", "INVESTING"], alt: "finance", link: "finance" },
 	{ src: Trading, tags: ["FINANCE", "MARKETS", "STOCKS"], alt: "trading", link: "trader" },
 	{ src: Quant, tags: ["FINANCE", "DATA", "ALGORITHMS"], alt: "quant", link: "quant" },

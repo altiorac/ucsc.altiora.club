@@ -132,7 +132,7 @@ function StructuredData() {
         name: orgName,
         url: siteUrl,
         logo: `${siteUrl}/logo.png`,
-        sameAs: ["https://www.instagram.com/altiorac"],
+        sameAs: ["https://www.instagram.com/altiorac", "https://www.github.com/altiorac"],
         department: [
             { "@type": "Organization", name: "Development Division" },
             { "@type": "Organization", name: "Engineering Division" },
